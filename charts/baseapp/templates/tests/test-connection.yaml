@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "baseapp.fullname" . }}-test-connection"
+  namespace: {{ include "baseapp.namespace" . }}
+  labels:
+    {{- include "baseapp.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "baseapp.servicename" . }}']
+  restartPolicy: Never
+# helm install --test 
+# helm upgrade --test
+# helm test <release-name> 
