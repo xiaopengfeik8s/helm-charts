@@ -63,9 +63,9 @@ service:
   #name: nginx
   #type:  ClusterIP/LoadBalancer
   type: LoadBalancer
-  httpsPort: 443
+  #httpsPort: 443
   httpPort: 80
-  targetPort: 8085
+  targetPort: 80
   #labels:
   #  run: shawntest
 
@@ -87,15 +87,15 @@ service:
 #    service.beta.kubernetes.io/alicloud-loadbalancer-id: lb-uf69xqly1ozmyrpn7wwww
 
 
-# forward-port http80 to http443
-  annotations:
-    service.beta.kubernetes.io/alibaba-cloud-loadbalancer-cert-id: 1715141351190592_18990421b4c_-111067350_222636765
-    service.beta.kubernetes.io/alibaba-cloud-loadbalancer-protocol-port: "https:443,http:80"
-    service.beta.kubernetes.io/alibaba-cloud-loadbalancer-forward-port: "80:443"
-    service.beta.kubernetes.io/alibaba-cloud-loadbalancer-scheduler: rr
-    service.beta.kubernetes.io/alicloud-loadbalancer-address-type: internet
-    service.beta.kubernetes.io/alicloud-loadbalancer-force-override-listeners: 'true'
-    service.beta.kubernetes.io/alicloud-loadbalancer-id: lb-uf69xqly1ozmyrpn7wwww
+## forward-port http80 to http443
+#  annotations:
+#    service.beta.kubernetes.io/alibaba-cloud-loadbalancer-cert-id: 1715141351190592_18990421b4c_-111067350_222636765
+#    service.beta.kubernetes.io/alibaba-cloud-loadbalancer-protocol-port: "https:443,http:80"
+#    service.beta.kubernetes.io/alibaba-cloud-loadbalancer-forward-port: "80:443"
+#    service.beta.kubernetes.io/alibaba-cloud-loadbalancer-scheduler: rr
+#    service.beta.kubernetes.io/alicloud-loadbalancer-address-type: internet
+#    service.beta.kubernetes.io/alicloud-loadbalancer-force-override-listeners: 'true'
+#    service.beta.kubernetes.io/alicloud-loadbalancer-id: lb-uf69xqly1ozmyrpn7wwww
 
 ingress:
   enabled: false
@@ -124,34 +124,34 @@ ingress:
   # requests:
   #   cpu: 100m
   #   memory: 128Mi
-resources:
-  limits:
-    cpu: "1"
-    memory: 100Mi
-  requests:
-    cpu: 100m
-    memory: 50Mi
+#resources:
+#  limits:
+#    cpu: "1"
+#    memory: 100Mi
+#  requests:
+#    cpu: 100m
+#    memory: 50Mi
 
 
 
 
 
-livenessProbe:
-  tcpSocket:
-    port: 80
-  initialDelaySeconds: 10
-  timeoutSeconds: 1
-  periodSeconds: 10
-  successThreshold: 1
-  failureThreshold: 3
-readinessProbe:
-  tcpSocket:
-    port: 80
-  initialDelaySeconds: 10
-  timeoutSeconds: 1
-  periodSeconds: 10
-  successThreshold: 1
-  failureThreshold: 3
+#livenessProbe:
+#  tcpSocket:
+#    port: 80
+#  initialDelaySeconds: 10
+#  timeoutSeconds: 1
+#  periodSeconds: 10
+#  successThreshold: 1
+#  failureThreshold: 3
+#readinessProbe:
+#  tcpSocket:
+#    port: 80
+#  initialDelaySeconds: 10
+#  timeoutSeconds: 1
+#  periodSeconds: 10
+#  successThreshold: 1
+#  failureThreshold: 3
 
 #livenessProbe:
 #  httpGet:
@@ -218,14 +218,14 @@ nodeSelector: {}
 
 tolerations: []
 
-#affinity: {}
-affinity:
-  nodeAffinity:
-    preferredDuringSchedulingIgnoredDuringExecution:
-      - weight: 1
-        preference:
-          matchExpressions:
-            - key: kubernetes.io/hostname
-              operator: In
-              values:
-                - cn-shanghai.10.0.40.121
+affinity: {}
+#affinity:
+#  nodeAffinity:
+#    preferredDuringSchedulingIgnoredDuringExecution:
+#      - weight: 1
+#        preference:
+#          matchExpressions:
+#            - key: kubernetes.io/hostname
+#              operator: In
+#              values:
+#                - cn-shanghai.10.0.40.121
