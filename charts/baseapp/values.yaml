@@ -54,9 +54,13 @@ securityContext: {}
 #  type: ClusterIP
 #  port: 80
 
+createLogstore: false
+Logstore:
+  name: nginx
 
 # default namespace： environment-firstPart（name）-》 dev-jpi
 #namespace: default
+createNamespace: true
 
 service:
   # default：name-svc
