@@ -33,10 +33,15 @@ spec:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
         - name: {{ include "baseapp.name" . }}
-          {{- if .Values.createLogstore }}
           env:
+            {{- if .Values.createLogstore }}
             - name: {{ include "baseapp.LogstoreName" . }}
               value: stdout
+            {{- end }}
+            {{- range .Values.env }}
+            - name: {{ .name }}
+              value: {{ .value | quote }}
+            {{- end }}
           {{- end }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}

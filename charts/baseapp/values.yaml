@@ -6,6 +6,15 @@ replicaCount: 1
 
 environment: local  
 
+env: []
+#env:
+#  - name: ENVIRONMENT
+#    value: production
+#  - name: DEBUG
+#    value: "false"
+#  - name: API_URL
+#    value: "https://api.example.com"
+
 image:
   repository: nginx
   # pullPolicy：
