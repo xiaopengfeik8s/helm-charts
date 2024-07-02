@@ -35,7 +35,7 @@ spec:
         - name: {{ .Chart.Name }}
           {{- if .Values.createLogstore }}
           env:
-            - name: aliyun_logs_{{ .Values.LogstoreName }}
+            - name: {{ include "baseapp.LogstoreName" . }}
               value: stdout
           {{- end }}
           securityContext:

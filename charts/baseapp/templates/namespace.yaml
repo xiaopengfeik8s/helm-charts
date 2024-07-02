@@ -4,6 +4,5 @@ kind: Namespace
 metadata:
   name: {{ include "baseapp.namespace" . }}
   labels:
-    {{- include "baseapp.labels" . | nindent 4 }}
     kubernetes.io/metadata.name: {{ include "baseapp.namespace" . }}
 {{- end }}

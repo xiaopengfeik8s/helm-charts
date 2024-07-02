@@ -7,23 +7,25 @@ replicaCount: 1
 environment: local  
 
 image:
-  repository: acr-panda-registry-vpc.cn-shanghai.cr.aliyuncs.com/xxx/ui-front
+  repository: nginx
   # pullPolicy：
   # IfNotPresent – Downloads a new version of the image if one does not exist in the cluster.
   # Always – Pulls the image on every restart or deployment.
   # Latest – Pulls the most up-to-date version available.
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "local.1000"
+  tag: "latest"
 
 imagePullSecrets: []
-nameOverride: "jpi-java"
+#nameOverride: "jpi-java"
+nameOverride: "devops-java"
 # helm install <full name override> <chart name>/ --values <chart name>/values.yaml
 # helm install jpi-java-chart baseapp/ --values baseapp/values.yaml
 # helm install jpi-java-chart baseapp/ --values baseapp/values.yaml --dry-run --debug
 # helm template jpi-java-chart baseapp/ --values baseapp/values.yaml --show-only templates/service.yaml
 
-fullnameOverride: "jpi-java-chart"
+#fullnameOverride: "jpi-java-chart"
+fullnameOverride: "devops-java-chart"
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -55,8 +57,7 @@ securityContext: {}
 #  port: 80
 
 createLogstore: false
-Logstore:
-  name: nginx
+#LogstoreName: nginx
 
 # default namespace： environment-firstPart（name）-》 dev-jpi
 #namespace: default

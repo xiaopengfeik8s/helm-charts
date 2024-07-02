@@ -55,6 +55,22 @@ Create chart name and version as used by the chart label.
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
+
+{{/*
+Define the Logstore Name
+*/}}
+{{- define "baseapp.LogstoreName" -}}
+{{- $prefix := "aliyun_logs_" -}}
+{{- if .Values.LogstoreName -}}
+    {{- printf "%s%s" $prefix .Values.LogstoreName -}}
+{{- else -}}
+    {{- printf "%s%s" $prefix .Release.Name -}}
+{{- end -}}
+{{- end -}}
+
+
+
+
 {{/*
 Common labels
 */}}
