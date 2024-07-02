@@ -36,6 +36,8 @@ nameOverride: "devops-java"
 #fullnameOverride: "jpi-java-chart"
 fullnameOverride: "devops-java-chart"
 
+namespaceOverride: "dev-devops"
+
 serviceAccount:
   # Specifies whether a service account should be created
   create: false
