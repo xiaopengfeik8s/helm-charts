@@ -10,7 +10,7 @@ metadata:
 spec:
   containers:
     - name: wget
-      image: busybox
+      image: registry.cn-shanghai.aliyuncs.com/jllt-devops/busybox:latest
       command: ['wget']
       args: ['{{ include "baseapp.servicename" . }}']
   restartPolicy: Never
