@@ -3,6 +3,16 @@ entries:
   baseapp:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2024-07-02T04:21:40.530210522Z"
+    description: A Helm chart for Kubernetes
+    digest: 03ffd1f2a2c1c07a801bc8b88615f652ee4c9d787c4379c515933fa022d0c52b
+    name: baseapp
+    type: application
+    urls:
+    - https://github.com/xiaopengfeik8s/helm-charts/releases/download/baseapp-0.1.5/baseapp-0.1.5.tgz
+    version: 0.1.5
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2024-07-01T15:09:37.756408209Z"
     description: A Helm chart for Kubernetes
     digest: 45ce280cfbbb7b30895f6f0e73c6440af6b85135062c9239f9ee60e9f07f3764
@@ -31,4 +41,4 @@ entries:
     urls:
     - https://github.com/xiaopengfeik8s/helm-charts/releases/download/baseapp-0.1.2/baseapp-0.1.2.tgz
     version: 0.1.2
-generated: "2024-07-01T15:09:37.756421073Z"
+generated: "2024-07-02T04:21:40.530227763Z"
