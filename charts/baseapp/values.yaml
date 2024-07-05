@@ -15,6 +15,15 @@ env: []
 #  - name: API_URL
 #    value: "https://api.example.com"
 
+rolloutEnabled: false
+rolloutStrategy:
+  canary:
+    steps:
+      - setWeight: 10
+      - pause: {}
+      - setWeight: 90
+revisionHistoryLimit: 5
+
 image:
   repository: nginx
   # pullPolicy：

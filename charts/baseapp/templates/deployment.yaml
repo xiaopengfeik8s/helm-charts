@@ -1,5 +1,10 @@
+{{- if .Values.rolloutEnabled }}
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+{{- else }}
 apiVersion: apps/v1
 kind: Deployment
+{{- end }}
 metadata:
   name: {{ include "baseapp.fullname" . }}
   namespace: {{ include "baseapp.namespaceOverride" . }}
@@ -8,6 +13,11 @@ metadata:
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  {{- if .Values.rolloutEnabled }}
+  strategy:
+    {{- toYaml .Values.rolloutStrategy | nindent 4 }}
+  revisionHistoryLimit: {{ .Values.revisionHistoryLimit }}
   {{- end }}
   selector:
     matchLabels:
