@@ -36,8 +36,8 @@ image:
 
 #imagePullSecrets: []
 imagePullSecrets:
-  - shared-image-pull-secret
-nameOverride: "jpi-java"
+- name: shared-image-pull-secret
+#nameOverride: "jpi-java"
 nameOverride: "devops-java"
 # helm install <full name override> <chart name>/ --values <chart name>/values.yaml
 # helm install jpi-java-chart baseapp/ --values baseapp/values.yaml
