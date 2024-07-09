@@ -34,8 +34,10 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
 
-imagePullSecrets: []
-#nameOverride: "jpi-java"
+#imagePullSecrets: []
+imagePullSecrets:
+  - shared-image-pull-secret
+nameOverride: "jpi-java"
 nameOverride: "devops-java"
 # helm install <full name override> <chart name>/ --values <chart name>/values.yaml
 # helm install jpi-java-chart baseapp/ --values baseapp/values.yaml
